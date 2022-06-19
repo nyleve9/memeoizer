@@ -3,8 +3,7 @@ import logging
 import os
 import subprocess as sp
 
-from flask import render_template
-from flask import request
+from flask import render_template, request
 from app import app
 
 @app.route('/')
@@ -15,7 +14,7 @@ def index():
 
 
 @app.route('/upload', methods=['GET', 'POST'])
-def upload_page():
+def upload_file():
     if request.method == 'GET':
         title = 'Upload'
         return render_template('upload.html', title=title)
@@ -36,7 +35,7 @@ def upload_page():
             # check last 8 bytes make sure file ends where it says it ends
             
         # Store image as file
-        with open('tmp_img_file', 'w') as f:
+        with open('tmp_img_file', 'wb') as f:
             f.write(data)
             f.close()
         
@@ -50,3 +49,5 @@ def upload_page():
         # Render text to user
         return render_template('text.html', text=image_text)
 
+if __name__ == '__main__':
+   app.run(debug = True)

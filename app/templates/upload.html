@@ -3,25 +3,28 @@
 	<title>Memeoizer</title>
 	<link rel='stylesheet' type='text/css' href='static/css/index.css'>
 </head>
-<body>
-	<div id='background-container'>
-	</div>
-	<div id='foreground-container'>
-		<div id='banner'>
-			<div id='title'>
-				<p>{{ title }}</p>
-			</div>
-			<div id='menu'>
-				<ul>
-					<li><a href='/'>Index</a></li>
-					<li><a href='/upload'>Memeoizer</a></li>
-				</ul>
-			</div>
-		</div>
-		<div>
-			<form action="submit" method="post">
-				<input type="file" name="user-image">
-			</form>
-		</div>
-	</div>
-</body>
+<html>
+   <body>
+      <div id='background-container'></div>
+      <div id='foreground-container'>
+         <div id='banner'>
+            <div id='title'>
+               <p>{{ title }}</p>
+            </div>
+            <div id='menu'>
+               <ul>
+                  <li><a href='/'>Index</a></li>
+                  <li><a href='/upload'>Memeoizer</a></li>
+               </ul>
+            </div>
+         </div>
+         <div>
+            <form action="upload" method="post" 
+            enctype = "multipart/form-data">
+               <input type="file" name="file" />
+               <input type="submit" />
+            </form>
+         </div>
+      </div>
+   </body>
+</html>
